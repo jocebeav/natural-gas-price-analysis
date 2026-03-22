@@ -28,6 +28,8 @@ risk reporting and counterparty exposure monitoring.
 
 ## Dashboard
 [View on Tableau Public]([https://public.tableau.com/app/profile/jocelyn.beavers1007/vizzes])
+## Case Study Deck
+[View Presentation] (Google Drive) ([https://1drv.ms/p/c/885bbc2b4df2f46c/IQD-x37Vnwo-R6umpniESL2FAcuyZSJXklxfv-yUrzXE-qg?e=Z5tz2q])
 
 ## Files
 - `price_analysis.sql` — data cleaning and volatility calculations
