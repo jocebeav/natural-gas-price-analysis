@@ -1,0 +1,30 @@
+SELECT `spotprice`.`Month`,
+    `spotprice`.`Henry Hub Natural Gas Spot Price Dollars per Million Btu`
+FROM `naturalgasprices`.`spotprice`;
+
+-- Renaming this column because it's too long--
+
+Alter table naturalgasprices.spotprice
+Rename column `Henry Hub Natural Gas Spot Price Dollars per Million Btu` TO spot_price;
+
+Select*
+From naturalgasprices.spotprice;
+
+-- I want to separate the month and year columns--
+
+Alter table naturalgasprices.spotprice
+Add column year INT;
+
+Update naturalgasprices.spotprice
+SET year = CASE
+	When CAST(RIGHT(month, 2) AS Unsigned) Between 0 AND 26 Then 2000 + CAST(RIGHT(month, 2) AS unsigned)
+    Else 1900 + CAST(RIGHT(month, 2) AS unsigned)
+End;
+
+-- Now I need to take the year off the month column --
+
+update naturalgasprices.spotprice
+SET month = Left(month, Length(month) - 3);
+
+Select *
+From naturalgasprices.spotprice;
